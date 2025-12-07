@@ -64,7 +64,7 @@ func (t Template) Execute(w http.ResponseWriter, r *http.Request, data interface
 	tpl, err := t.htmlTpl.Clone() //Clone(): To allow multiple requests without overlapping data
 	if err != nil {
 		log.Printf("Cloning Template: %v", err)
-		http.Error(w, "There was and error rendering the page.", http.
+		http.Error(w, "There was an error rendering the page.", http.
 			StatusInternalServerError)
 		return
 	}
@@ -80,6 +80,9 @@ func (t Template) Execute(w http.ResponseWriter, r *http.Request, data interface
 				return csrf.TemplateField(r)
 			},
 			"currentUser": func() *models.User {
+				//looks for a user object stored in the request context.
+				// This is usually set during authentication middleware
+				// after a user successfully signs in.
 				return context.User(r.Context())
 			},
 			"errors": func() []string {

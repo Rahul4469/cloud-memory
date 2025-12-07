@@ -185,7 +185,8 @@ func run(cfg config) error {
 	// Setup Router and Routes ---------------
 	r := chi.NewRouter()
 	r.Use(csrfMw)
-	r.Use(umw.SetUser)
+	r.Use(umw.SetUser) // if no session is found, then user is nil in the context
+	// and the upcoming handlers(w, r) work without a user
 
 	tpl, err := views.ParseFS(templates.FS, "home.gohtml", "tailwind.gohtml")
 	if err != nil {

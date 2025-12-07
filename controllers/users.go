@@ -113,7 +113,7 @@ func (u Users) ProcessSignIn(w http.ResponseWriter, r *http.Request) {
 	}
 
 	setCookie(w, CookieSession, session.Token)
-	http.Redirect(w, r, "galleries", http.StatusFound)
+	http.Redirect(w, r, "/galleries", http.StatusFound)
 
 }
 
@@ -245,7 +245,7 @@ func (u Users) ProcessResetPassword(w http.ResponseWriter, r *http.Request) {
 }
 
 // ---------------------------------------------------------------------------
-// Uses Session
+// Uses session data from DB to fetch user data
 type UserMiddleware struct {
 	SessionService *models.SessionService
 }
@@ -262,7 +262,7 @@ func (umw UserMiddleware) SetUser(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		tokenCookie, err := r.Cookie("session")
 		if err != nil {
-			next.ServeHTTP(w, r)
+			next.ServeHTTP(w, r) // if no session is found, then sets default/empty W and R
 			return
 		}
 
@@ -275,10 +275,14 @@ func (umw UserMiddleware) SetUser(next http.Handler) http.Handler {
 		ctx := r.Context()
 		ctx = context.WithUser(ctx, user)
 		r = r.WithContext(ctx)
+		// The upcoming handler thats wrapped with the middleware
+		// will receive the updated w and R and use them for
+		// all upcoming tasks
 		next.ServeHTTP(w, r)
 	})
 }
 
+// For pages where only registered users are allowed
 func (umw UserMiddleware) RequireUser(next http.Handler) http.Handler {
 	//HandlerFunc implements the http.Handler interface
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

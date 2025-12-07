@@ -13,7 +13,7 @@ const (
 )
 
 // Takes built-in context type and User type,
-// binds the User objext/data to ctx and return the data
+// binds the User object/data to ctx and return the data
 // as ctx of context type to use later
 func WithUser(ctx context.Context, user *models.User) context.Context {
 	return context.WithValue(ctx, userKey, user)
