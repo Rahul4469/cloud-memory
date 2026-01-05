@@ -1,6 +1,9 @@
 # Cloud Memory
+### https://www.cloud-memory.online
 
 A self-hosted photo gallery application built with Go. Create galleries, upload images, and organize your memories in the cloud.
+
+![Go Version](https://img.shields.io/badge/Go-1.24+-00ADD8?style=flat&logo=go)
 
 ## Features
 
