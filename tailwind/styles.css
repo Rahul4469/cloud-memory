@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .gradient-bg {
+    @apply bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-600;
+  }
+}

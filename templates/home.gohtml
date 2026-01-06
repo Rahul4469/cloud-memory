@@ -1,50 +1,166 @@
 {{template "header" .}}
-<!-- <div class="px-6">
-    <h1 class="py-4 text-4xl semibold tracking-tight">Welcome to Go Project</h1>
-</div> -->
-<!-- Hero section -->
-<div class="relative pt-20 bg-gray-900 bg-opacity-40">
-  <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-    <div
-      class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-90 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-      style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-    </div>
-  </div>
-  <div class="py-24 sm:py-32 lg:pb-40">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h1 class="text-balance text-5xl font-semibold tracking-tight text-gray-200 sm:text-7xl">Upload to the cloud
-          with confidence</h1>
-        <p class="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8">A secure space to upload your photos,
-          videos and gifs.<br>All your memories at one place.</p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
-          {{if currentUser}}
-            <a href="/galleries" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm 
-                hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
-                focus-visible:outline-indigo-600">View you space</a>
-          {{else}}
-            <a href="/signin" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm 
-                hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
-                focus-visible:outline-indigo-600">Sign in to access cloud</a>
-            <a href="/faq" class="text-sm/6 font-semibold text-gray-200">Learn more <span aria-hidden="true">→</span></a>
-          {{end}}
+
+<!-- Hero Section -->
+<div class="gradient-bg">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
+                <span class="block">Upload to the cloud</span>
+                <span class="block text-primary-200">with confidence</span>
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-xl text-primary-100">
+                A secure space to upload your photos, videos and gifs.<br>All your memories at one place.
+            </p>
+            <div class="mt-10 flex justify-center space-x-4">
+                {{if currentUser}}
+                <a href="/galleries" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-primary-700 bg-white hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-700 focus:ring-white">
+                    View your space
+                    <svg class="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+                {{else}}
+                <a href="/signup" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-primary-700 bg-white hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-700 focus:ring-white">
+                    Get Started Free
+                    <svg class="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+                <a href="/signin" class="inline-flex items-center px-6 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-700 focus:ring-white transition-colors">
+                    Sign In
+                </a>
+                {{end}}
+            </div>
         </div>
-      </div>
-      <div class="mt-16 flow-root sm:mt-24">
-        <!-- <div class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              <img src="https://tailwindui.com/plus-assets/img/component-images/project-app-screenshot.png" alt="App screenshot" width="2432" height="1442" class="rounded-md shadow-2xl ring-1 ring-gray-900/10">
-            </div> -->
-      </div>
     </div>
-  </div>
-  <div
-    class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-    aria-hidden="true">
-    <div
-      class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-      style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+</div>
+
+<!-- How It Works -->
+<div class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900">How It Works</h2>
+            <p class="mt-4 text-lg text-gray-500">Three simple steps to store your memories</p>
+        </div>
+
+        <div class="mt-12">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto">
+                        <span class="text-2xl font-bold">1</span>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">Create Account</h3>
+                    <p class="mt-2 text-gray-500">
+                        Sign up for free and get instant access to your personal cloud storage space.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto">
+                        <span class="text-2xl font-bold">2</span>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">Upload Media</h3>
+                    <p class="mt-2 text-gray-500">
+                        Upload your photos, videos, and GIFs from your device or Dropbox easily and securely.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto">
+                        <span class="text-2xl font-bold">3</span>
+                    </div>
+                    <h3 class="mt-6 text-lg font-medium text-gray-900">Access Anywhere</h3>
+                    <p class="mt-2 text-gray-500">
+                        View and manage your memories from any device, anytime, anywhere in the world.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+<!-- Features Section -->
+<div class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900">Powerful Features</h2>
+            <p class="mt-4 text-lg text-gray-500">Everything you need to keep your memories safe</p>
+        </div>
+
+        <div class="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Feature 1: Secure Storage -->
+            <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4"></div>
+                <h3 class="text-lg font-semibold text-gray-900">Secure Storage</h3>
+                <h4 class="mt-1 text-sm font-medium text-gray-700">Bank-Level Security</h4>
+                <p class="mt-2 text-gray-500">Your photos and videos are encrypted and stored securely in the cloud with enterprise-grade protection.</p>
+            </div>
+
+            <!-- Feature 2: Gallery Management -->
+            <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4"></div>
+                <h3 class="text-lg font-semibold text-gray-900">Gallery Management</h3>
+                <h4 class="mt-1 text-sm font-medium text-gray-700">Organize Your Memories</h4>
+                <p class="mt-2 text-gray-500">Create galleries to organize your photos and videos by events, trips, or any way you prefer.</p>
+            </div>
+
+            <!-- Feature 3: Easy Upload -->
+            <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4"></div>
+                <h3 class="text-lg font-semibold text-gray-900">Easy Upload</h3>
+                <h4 class="mt-1 text-sm font-medium text-gray-700">Multiple Upload Options</h4>
+                <p class="mt-2 text-gray-500">Upload from your device or directly from Dropbox with our seamless integration.</p>
+            </div>
+
+            <!-- Feature 4: Fast Access -->
+            <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4"></div>
+                <h3 class="text-lg font-semibold text-gray-900">Fast Access</h3>
+                <h4 class="mt-1 text-sm font-medium text-gray-700">Lightning Quick</h4>
+                <p class="mt-2 text-gray-500">View your memories instantly with our optimized delivery network. No waiting, no delays.</p>
+            </div>
+
+            <!-- Feature 5: Privacy First -->
+            <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4"></div>
+                <h3 class="text-lg font-semibold text-gray-900">Privacy First</h3>
+                <h4 class="mt-1 text-sm font-medium text-gray-700">Your Data, Your Control</h4>
+                <p class="mt-2 text-gray-500">Only you can access your photos. We never share or sell your personal data to third parties.</p>
+            </div>
+
+            <!-- Feature 6: Mobile Friendly -->
+            <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4"></div>
+                <h3 class="text-lg font-semibold text-gray-900">Mobile Friendly</h3>
+                <h4 class="mt-1 text-sm font-medium text-gray-700">Works Everywhere</h4>
+                <p class="mt-2 text-gray-500">Access your memories on any device - desktop, tablet, or smartphone with a responsive design.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="bg-blue-700">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-3xl font-extrabold tracking-tight text-grey-300 sm:text-4xl">
+            <span class="block">Ready to store your memories?</span>
+            <span class="block text-blue-200">Start uploading for free today.</span>
+        </h2>
+        <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+            {{if currentUser}}
+            <a href="/galleries" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-700 bg-white hover:bg-blue-50">
+                Go to Galleries
+            </a>
+            {{else}}
+            <a href="/signup" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-700 bg-white hover:bg-blue-50">
+                Get Started
+            </a>
+            {{end}}
+        </div>
+    </div>
 </div>
 
 {{template "footer" .}}
